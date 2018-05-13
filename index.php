@@ -16,10 +16,10 @@ require_once('include/header.php');
 				</div>
 				<div class="item">
 					<img src="images/board-serge.jpg"/>
-				</div>	
+				</div>
 			</div>
 		</div>
-		<a class="carousel-prev" href="#"> 
+		<a class="carousel-prev" href="#">
 			<img src="images/fleche_left.png" class="fleches">
 		</a>
 		<a class="carousel-next" href="#">
@@ -27,19 +27,18 @@ require_once('include/header.php');
 		</a>
 	</div>
 
-
 </div>
 
 
 
 <?php
-	
 
-	$select = $db->prepare("SELECT *, DATE_FORMAT(date_creation, '%d/%m/%Y à %Hh%imin%ss') AS datetime_fr 
+
+	$select = $db->prepare("SELECT *, DATE_FORMAT(date_creation, '%d/%m/%Y à %Hh%imin%ss') AS datetime_fr
 							FROM products ORDER BY id DESC LIMIT 0,20");
 	$select->execute();
 
-		while ($s=$select->fetch(PDO::FETCH_OBJ)) 
+		while ($s=$select->fetch(PDO::FETCH_OBJ))
 		{
 		?>
 			<div class="index_article_view">
@@ -48,13 +47,13 @@ require_once('include/header.php');
 			<h4><?php echo $s->price; ?> €</h4>
 			<p>Ajouté le : <?php echo $s->datetime_fr; ?></p>  <hr><br>
 			</div>
-			
+
 		<?php
 		}
-		
 
 
-			
+
+
 
 require_once('include/footer.php');
 
